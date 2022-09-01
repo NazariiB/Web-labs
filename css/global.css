@@ -1,0 +1,46 @@
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+    color: #505f98;
+}
+
+li {
+    display: block; 
+}
+
+footer {
+    padding-top: 37px;
+    padding-bottom: 30px;
+    background-color: #E7ECFF;
+}
+
+a {
+    text-decoration: none;
+    color: #505f98;
+}
+
+button {
+    border: 0;
+}
+@media screen  and (max-width: 515px) {
+    :root {
+        font-size: 13px;
+    }
+
+}
+
+table {
+    text-align: left;
+}
+
+hr {
+    color: #CDD1D4;
+    background-color: #CDD1D4;
+    border: 0;
+    height: 2px;
+}
+
+@media screen and (max-width: 1183px) {
+    .hero_heder {
+      padding: 0 40px;
+    }
+}

@@ -1,0 +1,23 @@
+.secont_text {
+    margin-top: 50px;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    background: url("../images/second_img.svg") no-repeat right;
+    background-size: 500px;
+}
+
+@media screen and (max-width: 893px) {
+    .secont_text {
+        background-image: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .secont_text {
+        padding-top: 0;
+        padding: 0;
+    }
+}
