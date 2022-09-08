@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap"
+    rel="stylesheet">   
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Lab 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
+</head>
+<body>
+    <div class="main_container">
+        <div class="input_container">
+            <h1>Bank</h1>
+            <h2>name</h2>
+            <input type="text" id="name">
+            <h2>amount of clients</h2>
+            <input type="text" id="amount_clients">
+            <h2>amount of credits</h2>
+            <input class="credits_amount" type="text" id="amount_credits">
+        </br>
+            <button id="sbmit_but" type="submit">Submit</button>
+            <button id="sort_by_name" >Sort by name</button>
+        </br>
+        <h2>search by name</h2>
+        <input type="text" id="search_input">
+        <button id="search" >search</button>
+        </br>
+        <button id="total_amount">Total amount of clients</button>
+        <p id="total"></p>
+    </div>
+    <div class="ul_container">
+        <ul id="items_container">
+            
+        </ul>
+    </div>
+    </div>
+    <script type="module" src="./js/script.js"></script>
+</body>
+</html>
