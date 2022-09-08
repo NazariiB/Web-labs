@@ -1,0 +1,51 @@
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+    color: #505f98;
+}
+
+
+button {
+    border: 0;
+    background-color: #091133;
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 5%;
+}
+
+li {
+    display: block; 
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#items_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#total_amount {
+    margin-top: 20px;
+}
+
+#search_input {
+    margin-right: 20px;
+}
+
+.main_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_container{
+    margin-left: 350px;
+    width: 400px;
+}
+
+.ul_container {
+    margin-right: 350px;
+}
+
+.credits_amount {
+    margin-bottom: 20px;
+}

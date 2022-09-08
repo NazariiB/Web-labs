@@ -2,159 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LabWorking2-V2</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap"
-    rel="stylesheet">    
-    <link rel="stylesheet" href="../css/styles.css">
+    rel="stylesheet">   
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Lab 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
 </head>
 <body>
-    <section class="hero">
-        <div class="hero_heder">
-            <header class="header_hiden">
-
-                <div class="navbar">
-                    <a href="#" class="nav-branding">Leandy</a>
-                    
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-
-                    <div class="humburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-
-                </div>
-
-
-            </header>
-
-
-            <header class="header_main">
-
-                <div class="header_name">Leandy</div>
-                <ul class="elements">
-                    <li><a href="" class="element">Home</a></li>
-                    <li><a href="" class="element">About</a></li>
-                    <li><a href="" class="element">Pricing</a></li>
-                </ul>
-                <button class="learn_but">Learn more</button>
-                <button class="buy_but">Buy now</button>
-            </header>
-        </div>
-        <div class="hero_heder first_text">
-            <div class="inner_text">
-                <h1 class="heading_text">Introduce Your Product Quickly & Effectively</h1>
-                <p class="smaller_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus 
-                    mus.</p>
-                <p class="smaller_text2">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                <div class="two_but">
-                    <img src="./images/small_but.svg" alt="" class="first_img">
-                    <img src="./images/small_but.svg" alt="" class="first_img">
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="hero_heder secont_text">
-        <div class="inner_text">
-            <h1 class="heading_text">Light, Fast & Powerful</h1>
-            <p class="smaller_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus 
-                mus.</p>
-            <p class="smaller_text2">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-            <div class="two_but">
-                <img src="./images/small_but.svg" alt="" class="first_img">
-                <img src="./images/small_but.svg" alt="" class="first_img">
-            </div>
-        </div>
+    <div class="main_container">
+        <div class="input_container">
+            <h1>Bank</h1>
+            <h2>name</h2>
+            <input type="text" id="name">
+            <h2>amount of clients</h2>
+            <input type="text" id="amount_clients">
+            <h2>amount of credits</h2>
+            <input class="credits_amount" type="text" id="amount_credits">
+        </br>
+            <button id="sbmit_but" type="submit">Submit</button>
+            <button id="sort_by_name" >Sort by name</button>
+        </br>
+        <h2>search by name</h2>
+        <input type="text" id="search_input">
+        <button id="search" >search</button>
+        </br>
+        <button id="total_amount">Total amount of clients</button>
+        <p id="total"></p>
     </div>
-    <div class="hero_heder third_text">
-        <div class="inner_text">
-            <h1 class="heading_text">A Price To Suit Everyone</h1>
-            <p class="smaller_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus 
-                mus.</p>
-        </div>
+    <div class="ul_container">
+        <ul id="items_container">
+            
+        </ul>
     </div>
-    <div class="hero_heder third_text2">
-        <table class="first_table">
-            <tr>
-                <th><h1>Free</h1></th>
-            </tr>
-            <tr>
-                <th><div class="second_row">UI Kit Demo</div></th>
-            </tr>
-            <tr>
-                <th><div class="third_row">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,</div></th>
-            </tr>
-            <tr>
-                <th><button class="table_but">Purchase Now</button></th>
-            </tr>
-        </table>
-
-        <table class="first_table">
-            <tr>
-                <th><h1>$40</h1></th>
-            </tr>
-            <tr>
-                <th><div class="second_row">Design Kit</div></th>
-            </tr>
-            <tr>
-                <th><div class="third_row">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,</div></th>
-            </tr>
-            <tr>
-                <th><button class="table_but">Purchase Design Kit</button></th>
-            </tr>
-        </table>
-
-        <table class="first_table">
-            <tr>
-                <th><h1>$75</h1></th>
-            </tr>
-            <tr>
-                <th><div class="second_row">Design & Code Package</div></th>
-            </tr>
-            <tr>
-                <th><div class="third_row">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,</div></th>
-            </tr>
-            <tr>
-                <th><button class="table_but">Purchase Package</button></th>
-            </tr>
-        </table>
     </div>
-    <footer>
-        <div class="hero_heder footer_text">
-            <div class="inner_fotter">
-                <div class="nulp">@2020 LPNU</div>
-                <div class="header_name">Landie</div>
-            </div>
-            <hr>
-            <div class="bottom_button">
-                <button class="iot_but">IoT edition</button>
-            </div>
-            <div class="footer_ul">
-                <ul class="foo_ul">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </div>
-            <div class="icons">
-                <img src="./images/icons.svg" alt="" class="icons_footer">
-            </div>
-        </div>
-    </footer>
-    <script src="./js/hamburger.js"></script>
+    <script type="module" src="./js/script.js"></script>
 </body>
 </html>
