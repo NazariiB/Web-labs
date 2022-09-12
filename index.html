@@ -5,38 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap"
-    rel="stylesheet">   
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Lab 3</title>
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Laba 4</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
 </head>
 <body>
-    <div class="main_container">
-        <div class="input_container">
-            <h1>Bank</h1>
-            <h2>name</h2>
-            <input type="text" id="name">
-            <h2>amount of clients</h2>
-            <input type="text" id="amount_clients">
-            <h2>amount of credits</h2>
-            <input class="credits_amount" type="text" id="amount_credits">
-        </br>
-            <button id="sbmit_but" type="submit">Submit</button>
-            <button id="sort_by_name" >Sort by name</button>
-        </br>
-        <h2>search by name</h2>
-        <input type="text" id="search_input">
-        <button id="search" >search</button>
-        </br>
-        <button id="total_amount">Total amount of clients</button>
-        <p id="total"></p>
-    </div>
-    <div class="ul_container">
-        <ul id="items_container">
-            
-        </ul>
-    </div>
-    </div>
-    <script type="module" src="./js/script.js"></script>
+    <div class="herro">
+        <dir class="hero_main">
+            <header>
+                <ul class="header_ul">
+                    <li class="li_header"><a href="#" id="bank">Bank</a></li>
+                    <li class="li_header"><a href="#" id="add_bank">Add Bank</a></li>
+                </ul>
+                <div>
+                    <input type="text" id="search">
+                    <!-- <button type="submit" id="but_search">Search</button> -->
+                     <button type="submit" id="cancel">Cancel</button>
+                </div>
+            </header>
+            <hr>
+            <div class="side_barr">
+                <h1 class="inner_name">Add new Bank</h1>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Name</p>
+                    <input type="text" id="add_new_bank_name" class="name_of_the_bank">
+                </div>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Clients</p>
+                    <input type="text" id="add_new_bank_clients" class="name_of_the_bank">
+                </div>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Credits</p>
+                    <input type="text" id="add_new_bank_credits" class="name_of_the_bank">
+                </div>
+                <button id="add_new_bank">Add Bank</button>
+            </div>
+            <div class="side_barr_edit">
+                <h1 class="inner_name">Edit Bank</h1>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Name</p>
+                    <input type="text" id="input_name" class="name_of_the_bank">
+                </div>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Clients</p>
+                    <input type="text" id="input_cliets" class="name_of_the_bank">
+                </div>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <p>Credits</p>
+                    <input type="text" id="input_credits" class="name_of_the_bank">
+                </div>
+                <button id="edit_bank_but">Edit bank</button>
+            </div>
+            <main>
+                <div class="items">
+                    <div class="sorted">
+                        <h2>Sort items by name</h2>
+                        <input type="checkbox" id="switch" />
+                        <label for="switch">Toggle</label>
+                    </div>
+                    <div class="counter">
+                        <h2>Amount of clients:</h2>
+                        <p style="font-size: 25px;" id="amount_clients">0</p>
+                    </div>
+                </div>
+                <div class="bank_items">
+                    <ul id="items_container">
+                    </ul>
+                </div>
+                <div class="delete_item">
+                    <div class="inner">
+                        Drag item to delete
+                    </div>
+                </div>
+            </main>
+        </div>
+    </dir>
+    <script src="./js/steelLogig.js"></script>
 </body>
 </html>
