@@ -1,3 +1,40 @@
+// import { getAllBanks } from './api.js'
+
+
+const BASE_URL = 'http://127.0.0.1:5000';
+const RESOURSE_URl = `${BASE_URL}/banks`;
+
+const baseRequest = async ({urlPath = '', method='GET', body = null}) => {
+    try {
+        const reqParams = {
+            method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }
+
+        if(body) {
+            reqParams.body = JSON.stringify(body);
+        }
+
+        return await fetch(`${RESOURSE_URl}${urlPath}`, reqParams);
+    } catch(error) {
+        console.log('ERROR: ' + error);
+    }
+}
+
+
+const getAllBanks = async () => {
+  let res = await baseRequest({method: 'GET'}).then(async res => await  res.json().then(data => res = data));
+  return res;
+}
+
+const postBank = (body) => baseRequest({method: 'POST', body})
+
+const deleteBank = (body) => baseRequest({method: 'DELETE', body})
+
+
+
 const switcher = document.getElementById('switch');
 const item_conteiner = document.getElementById('items_container');
 const add_bank = document.getElementById('add_bank');
@@ -18,6 +55,7 @@ const search_input = document.getElementById('search');
 const but_search = document.getElementById('but_search');
 const cancel = document.getElementById('cancel');
 
+let deletedItes = new Set();
 let isOpen = true;
 let isSort = false;
 
@@ -86,13 +124,22 @@ const sortItems = () => {
   banks.sort((first, second) => second.name.localeCompare(first.name));
 }
 
-const printItems = () => {
+const printItems = async () => {
+  cleareItemContainer()
+  const res = await getAllBanks();
+  banks = [];
+  console.log(res);
+  res.forEach(elem => {
+    banks.push(JSON.parse(elem));
+  })
+
   if(isSort) {
     sortItems();
     banks.forEach(elem => addItemToPage(elem));
   } else {
     banks.forEach(elem => addItemToPage(elem));
   }
+  showAmount()
 }
 
 const sumClients = () => {
@@ -149,12 +196,18 @@ document.ondrag = (event) => {
   if(event.target.tagName === 'LI') {
     const tar = event.target.id;
     const target_item = document.getElementById(tar);
+    console.log(2)
     target_item.addEventListener('dragend', event1 => {
+      if(deletedItes.has(tar)){
+        return
+      }
       if(event1.clientX > 1100 && event1.clientY > 100 && event1.clientX < 1500 && event1.clientY < 400) {
+        deletedItes.add(tar)
         cleareItemContainer();
         banks = banks.filter(elem => elem.id !== tar);
-        banks.forEach(elem => addItemToPage(elem));
-        showAmount();
+        deleteBank(tar);
+        console.log('1')
+        printItems();
       }
     })
   }
@@ -163,7 +216,7 @@ document.ondrag = (event) => {
 const checkRes = ({ name, clients, credits }) => {
   let clients_num = Number(clients);
   let credits_num = Number(credits);
-  if(!Number.isInteger(clients_num) && !Number.isInteger(credits_num)) {
+  if(!Number.isInteger(clients_num) || !Number.isInteger(credits_num)) {
     return false;
   }
   if(name === '' || clients_num <= 0 || credits_num <= 0) {
@@ -180,17 +233,21 @@ document.onclick = (event) => {
 edit_button.addEventListener('click', event => {
   let id = edit_button.value;
   const elem = getEditInput();
+  if(!checkRes(elem)) {
+    alert('INCORECT DATA');
+    return;
+  }
   side_barr_edit.classList.toggle('active');
   for(let i = 0; i < banks.length; ++i) {
     if(banks[i].id === id) {
       banks[i].name = elem.name;
       banks[i].clients = elem.clients; 
       banks[i].credits = elem.credits;
+      postBank(banks[i]);
     }
   }
-  cleareItemContainer();
+  cleareItemContainer()
   printItems();
-  showAmount();
   isOpen = true;
 });
 
@@ -199,7 +256,7 @@ add_new_bank.addEventListener('click', event => {
   let res = getNewInput();
   if(checkRes(res)) {
     res.id = uuid.v1();
-    console.log(res.id)
+    postBank(res);
     banks.push(res);
     cleareNewInput();
     side_barr.classList.toggle('active');
@@ -227,3 +284,6 @@ search_input.addEventListener('keyup', event => {
   cleareItemContainer();
   findItem(getSearch()).forEach(elem => addItemToPage(elem));
 })
+
+
+printItems();
