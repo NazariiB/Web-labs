@@ -1,0 +1,37 @@
+.left_foot {
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+}
+
+.foot_con {
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 270px;
+    margin-right: 270px;
+}
+
+.inn_con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foot_im {
+    margin-right: 40px;
+}
+
+.top_hr {
+    position: relative;
+    top: 50px;
+}
+
+.boot_hr {
+    top: 1210px;
+    left: 265px;
+    width: 970px;
+}
+
+.footer_text {
+    text-align: center;
+}
