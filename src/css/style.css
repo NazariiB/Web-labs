@@ -19,14 +19,13 @@
     margin-left: 40px;
 }
 
-hr {
+.nav_hr {
     position: absolute;
     top: 95px;
-    height: 3px;
+    height: 2px;
     width:100%;
     background-color: #555;
 }
-
 
 li a:hover:not(.active) {
     transition: 1s;

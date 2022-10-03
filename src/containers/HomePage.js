@@ -19,12 +19,12 @@ export default function HomePage() {
                 </div>
                 <div className='fifth_con'>
                     <img src={nonIm} className='non_image' alt=""/>
-                    <h2>Tile 1 heading</h2>
+                    <h2>Tile 2 heading</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat</p>
                 </div>
                 <div className='fifth_con'>
                     <img src={nonIm} className='non_image' alt=""/>
-                    <h2>Tile 1 heading</h2>
+                    <h2>Tile 3 heading</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat</p>
                 </div>
             </div>

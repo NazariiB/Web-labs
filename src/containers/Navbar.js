@@ -15,6 +15,6 @@ export default function Navbar() {
                 <a href="/cart" className="li-elem">Cart</a>
             </li>
         </ul>
-        <hr/>
+        <hr className='nav_hr'/>
     </nav>
 }

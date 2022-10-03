@@ -2,19 +2,22 @@
 import Navbar from "./containers/Navbar";
 import HomePage from "./containers/HomePage";
 import Footer from "./containers/Footer";
+import Catalog from "./containers/Catalog";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  let component = <HomePage />;
-  switch(window.location.pathname) {
-    case "/":
-      component = <HomePage />;
-      break;
-    default:
-      
-  }
   return <>
     <Navbar/>
-    {component}
+    <BrowserRouter>
+    <Routes>
+    <Route path="/">
+            <Route index element={<HomePage />}></Route>
+            <Route path="catalog" element={<Catalog />}></Route>
+            {/* <Route path="cart" element={<Cart />}></Route> */}
+            <Route path="*" element={<HomePage />}></Route>
+          </Route>
+    </Routes>
+    </BrowserRouter>
     <Footer/>
   </>
 }

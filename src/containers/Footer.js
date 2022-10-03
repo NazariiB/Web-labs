@@ -1,8 +1,6 @@
 import logo from '../image/icons8-bank-50.png';
 import socials from '../image/socials.svg';
 
-// import { TwitterOutlined, LinkedinOutlined, GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
-
 export default function Footer() {
     return <footer>
         <hr className='top_hr'/>
