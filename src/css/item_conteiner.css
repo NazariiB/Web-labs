@@ -1,0 +1,18 @@
+.item_page_con {
+    /* max-width: 100px; */
+}
+
+.img_item_page {
+    max-width: 500px;
+}
+
+.sec_item_page {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_item_container {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: flex;
+}
