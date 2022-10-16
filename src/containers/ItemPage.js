@@ -2,11 +2,23 @@ import * as React from 'react';
 import ThemeContext from './Context';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from '../image/112.jpg';
+import Loading from './Loading.js';
+import { useEffect, useState } from 'react';
+const { getBank } = require('../request/getInfo.js');
 
-export default function ItemPage (props) {
+export default function ItemPage () {
+    const [info, setInfo] = useState(<Loading />);
     const params = useParams();
-    const data = JSON.parse(JSON.stringify(params));
-    const info = JSON.parse(data.id).data
+    useEffect(() => {
+        setTimeout(() => {
+            getBank(params.id).then(result => {
+                const res = result[0]
+                setInfo([<h2>Name: {res[1]}</h2>,
+                <h3>Credits: {res[2]}</h3>,
+                <h3>Clients: {res[3]}</h3>])
+            })
+        }, 1000)
+    }, [])
     return <div className='main_item_container'>
         <div className='item_page_con'>
             <img className='img_item_page' src={logo}></img>
@@ -17,8 +29,7 @@ export default function ItemPage (props) {
                 </h2>
             </div>
             <div>
-            <h3>Clients: {info.clients}</h3>
-            <h3>Credits: {info.credits}</h3>
+                {info}
             </div>
         </div>
     </div>

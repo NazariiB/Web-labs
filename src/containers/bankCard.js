@@ -14,11 +14,8 @@ export default function MultiActionAreaCard(props) {
   const temp = React.useContext(ThemeContext)
   const onClickView = (e) => {
     e.preventDefault()
-    // props.cardF.cardFun(props.data)
-    navigate(`/itemPage/${JSON.stringify(props)}`)
+    navigate(`/itemPage/${props.data.id}`)
     navigate(0)
-    props.info.cardFun([...props])
-    temp.setIdcard([props])
   }
   return (
     <Card sx={{ maxWidth: 300, minWidth:250 }} className="card_bank">

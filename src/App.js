@@ -1,4 +1,3 @@
-// import { Component } from "react";
 import Navbar from "./containers/Navbar";
 import HomePage from "./containers/HomePage";
 import Footer from "./containers/Footer";
@@ -10,26 +9,19 @@ import ThemeContext from "./containers/Context";
 
 
 function App() {
-  const[idCard, setIdcard] = useState('light');
-  const[temp1, setTemp2] = useState('aaaaaaaaaaaaaaaaaa');
-  let cardId = undefined;
-  const setID = (id) => {
-    cardId = id;
-    console.log(id);
-    console.log('asdasd')
-  }
-  return <ThemeContext.Provider value={{idCard, setIdcard}}>
+  const[idCard, setIdcard] = useState('');
+  return <>
     <Navbar/>
     <BrowserRouter>
       <Routes>
-          <Route path="/catalog" element={<Catalog cardFun={{setTemp2}} />}/>
+          <Route path="/catalog"  element={<Catalog />}/>
           <Route path="/home" element={<HomePage/>} />
           <Route path="*" element={<HomePage />}></Route>
-          <Route path="/itemPage/:id" element={<ItemPage item={idCard}/>}></Route>
+          <Route path="/itemPage/:id" element={<ItemPage />}></Route>
       </Routes>
     </BrowserRouter>
     <Footer/>
-  </ThemeContext.Provider>
+  </>
 
 }
 

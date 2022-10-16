@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import MultiActionAreaCard from './bankCard.js';
+import Loading from './Loading.js';
+const { getBanks, getFilterredBanks } = require('../request/getInfo.js');
 
 const options1 = [
     {
@@ -36,47 +38,60 @@ const options2 = [
   ];
 
 
-export default function Catalog(props) {
-    const [cards, setCard] = useState([
-        {name:"mono", clients:"100", credits:"200"},
-        {name:"private", clients:"120", credits:"110"},
-        {name:"oschad", clients:"50", credits:"250"},
-        {name:"finance", clients:"300", credits:"50"},
-        {name:"credi", clients:"170", credits:"290"},
-    ])
+export default function Catalog() {
+    const [cards, setCard] = useState([<Loading />])
     const [arr, setArr] = useState(cards);
 
     const [filter1, filterItem] = useState('');
     const [filter2, filterItem2] = useState('');
     const [input, setInput] = useState('');
-
     const applyOnClick = (e) => {
-      let sortBy = false;
-      if(!filter1 && !filter2) {
-        return
+      setCard([<Loading />])
+
+      setTimeout(() => {
+        getFilterredBanks(`${!filter1 ? 'none': filter1}_${!filter2 ? 'none' : filter2}`)
+          .then(res => {
+            if(res === '') {
+              setCard([...arr])
+            } else {
+              const temp = []
+              for (const it of res) {
+                let t = {}
+                t.id = it[0];
+                t.name = it[1];
+                t.clients = it[2];
+                t.credits = it[3];
+                temp.push(t)
+              }
+              setCard([...temp])
+              setArr([...temp])
+            }
+          })
+        }, 1000)
       }
-      if(filter2) {
-        sortBy = filter2 === 'ascending' ? true : false;
-      }
-      if(String(filter1) === 'clients') {
-        cards.sort( (fir, sec) => sortBy ? Number(fir.clients) - Number(sec.clients) : Number(sec.clients) - Number(fir.clients))
-        setCard([...cards])
-      } else if(String(filter1) === 'credits') {
-        cards.sort( (fir, sec) => sortBy ? Number(fir.credits) - Number(sec.credits) : Number(sec.credits) - Number(fir.credits))
-        setCard([...cards])
-      } else {
-        cards.sort((fir, sec) => sortBy ? fir.name.localeCompare(sec.name) : sec.name.localeCompare(fir.name))
-        setCard([...cards])
-      }
-    }
+
+    useEffect( () => {
+      setTimeout(() => {
+        const temp = []
+        getBanks().then((res) => {
+          for (const it of res) {
+            let t = {}
+            t.id = it[0];
+            t.name = it[1];
+            t.clients = it[2];
+            t.credits = it[3];
+            temp.push(t)
+          }
+          setCard([...temp])
+          setArr([...temp])
+        })
+      }, 1000);
+    }, [])
 
     const search = (e) => {
       const str = e.target.value;
       setInput(str)
-      const res = arr.filter(elem => 
-        elem.name.includes(str) || elem.clients.includes(str) || elem.credits.includes(str)
-      )
-      console.log(res)
+      const res = arr.filter(elem => elem.name.includes(str) || String(elem.clients).includes(str) || String(elem.credits).includes(str))
       setCard([...res])
     }
 
@@ -101,9 +116,16 @@ export default function Catalog(props) {
             </div>
             <hr className='hr_catalog'/>
             <div className='catalog_lov'>
-                {cards.map((card, index) => 
+                {/* {cards.map((card, index) => 
                     <MultiActionAreaCard data={card} key={index}/>
-                )}
+                )} */}
+                {cards.map(card => {
+                  if(card.type !== undefined && card.type.name === 'Loading'){
+                    return card
+                  } else {
+                    return <MultiActionAreaCard data={card} key={card.id}/>
+                  }
+                })}
             </div>
         </div>
     </main>
