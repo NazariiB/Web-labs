@@ -4,11 +4,27 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from '../image/112.jpg';
 import Loading from './Loading.js';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSelect } from '@mui/base';
+import Popup from 'reactjs-popup';
 const { getBank } = require('../request/getInfo.js');
 
 export default function ItemPage () {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const res = useSelector(state => state)
+    const addBank = () => {
+        alert("successfully added bank");
+        getBank(params.id).then(result => {
+            const res = result[0]
+            console.log(res[1])
+            dispatch({type:'ADD_BANK', name:res[1], credits:res[2] })
+        })
+    }
     const [info, setInfo] = useState(<Loading />);
     const params = useParams();
+
+
     useEffect(() => {
         setTimeout(() => {
             getBank(params.id).then(result => {
@@ -30,6 +46,10 @@ export default function ItemPage () {
             </div>
             <div>
                 {info}
+            </div>
+            <div> 
+                <button className='but_catalog_page' onClick={() => navigate(`/catalog`)}>Go back</button>
+                <button onClick={addBank} className='but_add_bank'>Add to card</button>
             </div>
         </div>
     </div>

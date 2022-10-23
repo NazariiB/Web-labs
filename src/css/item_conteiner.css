@@ -16,3 +16,20 @@
     margin: 0 auto;
     display: flex;
 }
+
+.but_catalog_page {
+    background-color:#ffffff;
+    height: 40px;
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 40px;
+    border-color: black;
+}
+
+.but_add_bank {
+    background-color: #424242;
+    border-color: black;
+    height: 40px;
+    width: 100px;
+    color: white;
+}

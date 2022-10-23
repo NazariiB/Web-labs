@@ -15,10 +15,10 @@ export default function MultiActionAreaCard(props) {
   const onClickView = (e) => {
     e.preventDefault()
     navigate(`/itemPage/${props.data.id}`)
-    navigate(0)
+    // navigate(0)
   }
   return (
-    <Card sx={{ maxWidth: 300, minWidth:250 }} className="card_bank">
+    <Card sx={{ maxWidth: 305, minWidth:250 }} className="card_bank">
       <CardActionArea>
         <CardMedia
           component="img"

@@ -1,0 +1,64 @@
+
+.card_box_con {
+    max-width: 930px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.image_box{
+    height: 100px;
+}
+
+.box_card_bank {
+    border:1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.asd{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.asd2{
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.asd3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.asd4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+
+.asd5{
+    position: absolute;
+    right: 680px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.text_p{
+    font-size:larger;
+    font-weight: 500;
+}
+
+.b1{
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #fff;
+}

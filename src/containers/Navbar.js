@@ -1,18 +1,22 @@
+import * as React from 'react';
+import ThemeContext from './Context';
+import {useNavigate} from "react-router-dom";
 import MyImage from '../image/icons8-bank-50.png';
 // import { BankOutlined } from "@ant-design/icons"
 export default function Navbar() {
+    const navigate = useNavigate();
     return <nav className="nav">
         <img src={MyImage} alt="logo"/>
 
         <ul className="nav-bar">
             <li>
-                <a href="/home" className="li-elem">Home</a>
+                <button className='nav_but' onClick={() => navigate('/home')}>Home</button>
             </li>
             <li>
-                <a href="/catalog" className="li-elem">Catalog</a>
+                <button className='nav_but' onClick={() => navigate('/catalog')}>Catalog</button>
             </li>
             <li>
-                <a href="/cart" className="li-elem">Cart</a>
+                <button className='nav_but' onClick={() => navigate('/cart')}>Cart</button>
             </li>
         </ul>
         <hr className='nav_hr'/>

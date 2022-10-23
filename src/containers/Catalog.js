@@ -116,9 +116,6 @@ export default function Catalog() {
             </div>
             <hr className='hr_catalog'/>
             <div className='catalog_lov'>
-                {/* {cards.map((card, index) => 
-                    <MultiActionAreaCard data={card} key={index}/>
-                )} */}
                 {cards.map(card => {
                   if(card.type !== undefined && card.type.name === 'Loading'){
                     return card
