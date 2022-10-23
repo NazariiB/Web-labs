@@ -1,0 +1,35 @@
+.nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    border : 2px solid #555;
+    padding-inline-start: 0px;
+    padding-right: 40px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.li-elem {
+    font-size: 25px;
+    margin-left: 40px;
+}
+
+.nav_hr {
+    position: absolute;
+    top: 95px;
+    height: 2px;
+    width:100%;
+    background-color: #555;
+}
+
+li a:hover:not(.active) {
+    transition: 1s;
+    background-color: #555;
+    color: white;
+}

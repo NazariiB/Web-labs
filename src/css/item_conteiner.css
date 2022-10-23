@@ -1,0 +1,35 @@
+.item_page_con {
+    /* max-width: 100px; */
+}
+
+.img_item_page {
+    max-width: 500px;
+}
+
+.sec_item_page {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_item_container {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.but_catalog_page {
+    background-color:#ffffff;
+    height: 40px;
+    width: 100px;
+    margin-right: 20px;
+    margin-top: 40px;
+    border-color: black;
+}
+
+.but_add_bank {
+    background-color: #424242;
+    border-color: black;
+    height: 40px;
+    width: 100px;
+    color: white;
+}
